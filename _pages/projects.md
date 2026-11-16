@@ -60,7 +60,7 @@ _styles: |
 
 ## Disinhibition & Multisensory Integration
 
-*KIST · Master's research, 2024–2026*
+_KIST · Master's research, 2024–2026_
 
 My master's research examined how disinhibitory circuits affect information
 transmission when auditory and visual inputs converge. I built biophysical
@@ -107,9 +107,11 @@ visual information transmission.
 
 ---
 
+<br />
+
 ## Medical LLM Safety Alignment
 
-*Student-led collaboration initiated in CMU's Introduction to Deep Learning course · 2025–2026*
+_Student-led collaboration initiated in CMU's Introduction to Deep Learning course · 2025–2026_
 
 I developed Adversarial Self-Correction (ASC) to construct medical preference
 data without new domain annotations or external judges. Using direct preference
@@ -146,7 +148,11 @@ paper accepted at GenAI4Health, a NeurIPS 2026 workshop.
 
 ---
 
+<br />
+
 ## Other Research Activities
+
+<br />
 
 ### NeuroCERT: Testing Biophysical Network Simulations
 
