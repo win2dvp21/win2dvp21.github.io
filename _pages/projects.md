@@ -84,7 +84,7 @@ I measured how much information the output population’s firing rate carried ab
 
 - **Distinct disinhibitory circuits differentially modulate the multisensory integration in a feedforward network.**  
   Seung-Youn Lee, Kyujin Kang, Yebeen Yoon, Jae-Ho Han, and Hyun Jae Jang.  
-  *Journal of Computational Neuroscience*, 54(Suppl. 1), Abstract P163, 2026. **Published conference abstract.**
+  _Journal of Computational Neuroscience_, 54(Suppl. 1), Abstract P163, 2026. **Published conference abstract.**
 
 - **Disinhibition of Distinct Inhibitory Circuits Differentially Modulates Multisensory Integration of In Vivo Spike Patterns in a Cross-Modal Feedforward Network.**  
   Seungyoun Lee, Kyujin Kang, Yebeen Yoon, Jae-Ho Han, and Hyun Jae Jang.  
@@ -153,4 +153,4 @@ I reviewed how researchers combine transformer architectures with spiking neural
 - **A Review of Transformer-Based Spiking Neural Networks for Brain-Inspired Artificial Intelligence.**  
   Seungyoun Lee, Jae-Ho Han, and Hyun Jae Jang.  
   Conference on Electronics, Semiconductor, and AI, Gangneung, South Korea, 2025. **Poster presentation.**
-
+  
