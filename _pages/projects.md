@@ -2,7 +2,7 @@
 layout: page
 title: Research
 permalink: /projects/
-description: Computational neuroscience and language-model safety.
+description: Computational neuroscience and Artificial Intelligence.
 nav: true
 nav_order: 1
 
@@ -58,22 +58,15 @@ _styles: |
   }
 ---
 
-## Disinhibition & Multisensory Integration
+## Cross-Modal Feedforward Neural Networks with Disinhibitory Motifs
 
 _KIST · Master's research, 2024–2026_
 
-My master's research examined how disinhibitory circuits affect information
-transmission when auditory and visual inputs converge. I built biophysical
-feedforward networks of auditory and visual cortical neurons and compared three
-configurations: no cross-modal connections, direct excitation, and excitation
-plus disinhibition. I drove the networks with spikes recorded from mouse primary
-auditory (A1) and visual (V1) cortex and analyzed the information carried by the output.
+My master’s research at KIST examined how disinhibitory circuits shape multisensory integration. When auditory and visual signals converge, does disinhibition help downstream neurons distinguish one stimulus combination from another?
 
-Direct excitation increased output firing but reduced mutual information on
-average. Disinhibition produced gains for some input conditions and losses for
-others, with mean mutual information comparable to baseline. I also varied the
-source of excitation to SST interneurons to examine its effects on auditory and
-visual information transmission.
+I built two Hodgkin–Huxley feedforward networks representing primary auditory cortex (A1) and primary visual cortex (V1), with both pathways converging on a shared output layer. As inputs, I used spike trains that my collaborators recorded from mouse A1 and V1 during presentations of tones and visual gratings. Using the same inputs, I compared three circuits. The baseline had no connections between the pathways. The second added direct excitation from A1 to V1. The third also included a disinhibitory circuit in which VIP interneurons inhibited SST interneurons, relieving inhibition of pyramidal neurons.
+
+I measured how much information the output population’s firing rate carried about the stimulus using mutual information. Direct excitation increased firing but reduced stimulus information on average. With disinhibition, stimulus information rose above baseline in 36 of 75 input sets and fell below it in 39. Larger gains tended to occur when auditory activity was stronger relative to visual activity. In the five cases with the largest gains, I also found that the source of excitation to SST neurons mattered. Input from the same V1 layer produced larger gains in visual information than input from A1, while gains in auditory information were similar on average.
 
 {% for figure in page.multisensory_figures %}
 {% assign research_image = site.static_files | where: "path", figure.path | first %}
@@ -109,23 +102,13 @@ visual information transmission.
 
 <br />
 
-## Medical LLM Safety Alignment
+## LLM Safety Alignment in the Medical Domain
 
 _Student-led collaboration initiated in CMU's Introduction to Deep Learning course · 2025–2026_
 
-I developed Adversarial Self-Correction (ASC) to construct medical preference
-data without new domain annotations or external judges. Using direct preference
-optimization (DPO), I trained two sibling policies on original and reversed
-general-safety preferences. Their responses to medical prompts formed new
-preference pairs, with the aligned policy's response treated as preferred.
+At Carnegie Mellon University, my collaborators and I asked whether general safety preferences could help align a medical language model without collecting new labels for medical responses. We developed Adversarial Self-Correction (ASC), a method that trains two copies of the same model using direct preference optimization (DPO). One learns from the original safety preferences, while the other learns from the same examples with the preferences reversed. We then give both models the same medical prompt and treat the first model’s response as preferred. This gives us a pair of responses for medical safety training without asking an external judge to rank them.
 
-I evaluated ASC on BioMistral-7B and Llama-3.1-8B-Instruct across six benchmarks
-covering safety, over-refusal, and utility. Compared with the general-safety DPO
-baseline, ASC reduced BioMistral-7B's unsafe-request compliance on XSTest from
-10.5% to 5.0% while preserving MedQA accuracy. Safe-prompt compliance decreased
-from 66.8% to 62.4%, and results on Llama-3.1-8B-Instruct were mixed.
-I led the project's continuation beyond the course, resulting in a first-author
-paper accepted at GenAI4Health, a NeurIPS 2026 workshop.
+We evaluated ASC on BioMistral-7B and Llama-3.1-8B-Instruct across six benchmarks. Compared with general-safety DPO, ASC reduced the share of unsafe XSTest requests that BioMistral-7B answered from 10.5% to 5.0%, while preserving accuracy on MedQA. The model also answered fewer safe requests, with compliance falling from 66.8% to 62.4%. Results on Llama-3.1-8B-Instruct were mixed. I led the project beyond the original course, and our first-author paper was accepted at the GenAI4Health workshop at NeurIPS 2026.
 
 {% for figure in page.asc_figures %}
 {% assign research_image = site.static_files | where: "path", figure.path | first %}
@@ -156,12 +139,16 @@ paper accepted at GenAI4Health, a NeurIPS 2026 workshop.
 
 ### NeuroCERT: Testing Biophysical Network Simulations
 
+How can we test a biophysical network simulation when the exact output is unknown? In NeuroCERT, I explored how to turn expectations about a simulation’s behavior into tests that can be run on the model.
+
 - **Poster: NeuroCERT: Executable Testing for Oracle-Limited Biophysical Network Simulation.**  
   Seungyoun Lee, Hyun Jae Jang, and Jae-Ho Han.  
   IEEE International Conference on Software Testing, Verification and Validation (ICST),
   pp. 324–327, 2026. **Peer-reviewed conference proceedings.**
 
 ### Transformer-Based Spiking Neural Networks
+
+I reviewed how researchers combine transformer architectures with spiking neural networks, which represent activity through discrete spikes. I presented this work at the 2025 Conference on Electronics, Semiconductor, and AI, where it received an Outstanding Poster Award.
 
 - **A Review of Transformer-Based Spiking Neural Networks for Brain-Inspired Artificial Intelligence.**  
   Seungyoun Lee, Jae-Ho Han, and Hyun Jae Jang.  
