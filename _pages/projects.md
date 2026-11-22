@@ -153,4 +153,3 @@ I reviewed how researchers combine transformer architectures with spiking neural
 - **A Review of Transformer-Based Spiking Neural Networks for Brain-Inspired Artificial Intelligence.**  
   Seungyoun Lee, Jae-Ho Han, and Hyun Jae Jang.  
   Conference on Electronics, Semiconductor, and AI, Gangneung, South Korea, 2025. **Poster presentation.**
-  
