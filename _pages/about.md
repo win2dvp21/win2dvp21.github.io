@@ -97,7 +97,7 @@ cat_image: /assets/img/kinyangi.jpg
     </figure>
   </div>
 
-  <h2 id="education-training">Education &amp; Training</h2>
+  <h2 id="education-training">Education</h2>
   <ul>
     <li>
       <p><strong>Korea University</strong> · 2024–2026<br>
@@ -115,17 +115,27 @@ cat_image: /assets/img/kinyangi.jpg
     </li>
   </ul>
 
-  <h2 id="selected-honors">Selected Honors</h2>
+  <h2 id="selected-honors">Honors, Fellowships &amp; Awards</h2>
   <ul>
     <li>
-      <p><strong>Presidential Science Scholarship for Graduate Students</strong> · 2024–2026<br>
-      Selected as one of 25 first-year master's students nationwide.<br>
+      <p><strong>Presidential Science Scholarship for Graduate Students</strong>, Korea Student Aid Foundation · Mar. 2024–Aug. 2026<br>
+      One of 25 first-year master's students nationwide to receive full funding for the degree.<br>
       <a href="https://www.asiatime.co.kr/article/20240523500260">News coverage (Korean)</a></p>
     </li>
     <li>
-      <p><strong>Outstanding Graduate Award, KIST</strong> · 2026<br>
+      <p><strong>Outstanding Graduate Award</strong>, KIST Academic–Research Cooperative Program · Aug. 2026<br>
       Selected as one of two master's graduates recognized institute-wide.</p>
     </li>
+    <li>Excellence Award, Poster Presentation, Conference on Electronics, Semiconductor, and AI · Aug. 2025</li>
+    <li>Excellence Award, Project Presentation, Computational Neuroscience Winter School · Feb. 2025</li>
+    <li>Special Award – Hugging Face OSS Team, Open-Source Contribution Academy · Dec. 2024</li>
+    <li>1st Place, GenAI Hands-on Challenge, AWS × Girls in Tech Korea · Dec. 2023</li>
+    <li>SW Future Competence Development Scholarship, Ewha Womans University · Dec. 2023</li>
+    <li>Encouragement Award, International Capstone Design Fair, Korea University · Nov. 2023</li>
+    <li>Ewha Discovery &amp; Adventure Lab Scholarship, Ewha Womans University · Jun. 2023</li>
+    <li>Finalist, 5th Open Infra Development Competition, Mentech · May 2023</li>
+    <li>Honorable Mention, Solana Grizzlython, Solana Foundation · Apr. 2023</li>
+    <li>4th Place, Ewha Power ProgrammER Competition · Oct. 2022</li>
   </ul>
 
   <div class="about-personal">
