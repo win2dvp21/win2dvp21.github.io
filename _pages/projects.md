@@ -60,13 +60,13 @@ _styles: |
 
 ## Cross-Modal Feedforward Neural Networks with Disinhibitory Motifs
 
-_KIST · Master's research, 2024–2026_
+_KIST · Master's research, 2024-2026_
 
-My master’s research at KIST examined how disinhibitory circuits shape multisensory integration. When auditory and visual signals converge, does disinhibition help downstream neurons distinguish one stimulus combination from another? To address this question, I built two four-layer Hodgkin–Huxley networks representing primary auditory cortex (A1) and primary visual cortex (V1), both projecting to a shared output layer.
+My master’s research at KIST examined how disinhibitory circuits shape multisensory integration. When auditory and visual signals converge, does disinhibition help downstream neurons distinguish one stimulus combination from another? To address this question, I built two four-layer Hodgkin-Huxley feedforward networks representing primary auditory cortex (A1) and primary visual cortex (V1), both projecting to a shared output layer.
 
-As model inputs, I used spike trains that my collaborators recorded from mouse A1 and V1 while presenting tones and visual gratings together. For each A1–V1 neuron pair, we selected two auditory and two visual stimuli based on the neurons’ responses. This gave four tone–grating combinations, with 10 trials per combination in the input set. In each model pathway, 10% of the input-layer neurons received spike times recorded from the corresponding cortical area. The remaining 90% received simulated spontaneous activity, with firing rates drawn from a log-normal distribution.
+As model inputs, I used spike trains that my collaborators recorded from mouse A1 and V1 while presenting tones and visual gratings together. For each A1-V1 neuron pair, we selected two auditory and two visual stimuli based on the neurons’ responses. This gave four tone-grating combinations, with 10 trials per combination in the input set. In each model pathway, 10% of the input-layer neurons received spike times recorded from the corresponding cortical area. The remaining 90% received simulated spontaneous activity, with firing rates drawn from a log-normal distribution.
 
-Using the same inputs, I compared three circuits: a baseline with no cross-modal connections, a circuit with direct A1-to-V1 excitation, and a circuit incorporating VIP–SST disinhibition. I measured how much information the output population’s firing rate carried about the four stimulus combinations. Direct excitation increased firing but reduced mutual information on average. The disinhibitory circuit had a similar mean mutual information to the baseline, but its effect varied across simulations. Gains tended to be larger when the baseline circuit carried less stimulus information and when auditory activity was stronger relative to visual activity. I am currently preparing a first-author manuscript on this work.
+Using the same inputs, I compared three circuits: a baseline with no cross-modal connections, a circuit with direct A1-to-V1 excitation, and a circuit incorporating VIP<sup>+</sup>-SST<sup>+</sup> disinhibition. I measured how much information the output population’s firing rate carried about the four stimulus combinations. Direct excitation increased firing but reduced mutual information on average. The disinhibitory circuit had a similar mean mutual information to the baseline, but its effect varied across simulations. Gains tended to be larger when the baseline circuit carried less stimulus information and when auditory activity was stronger relative to visual activity. I am currently preparing a first-author manuscript on this work.
 
 {% for figure in page.multisensory_figures %}
 {% assign research_image = site.static_files | where: "path", figure.path | first %}
@@ -104,7 +104,7 @@ Using the same inputs, I compared three circuits: a baseline with no cross-modal
 
 ## LLM Safety Alignment in the Medical Domain
 
-_Student-led collaboration initiated in CMU's Introduction to Deep Learning course · 2025–2026_
+_Student-led collaboration initiated in CMU's Introduction to Deep Learning course · 2025-2026_
 
 At Carnegie Mellon University, my collaborators and I asked whether general safety preferences could be used to align a language model for medical questions without collecting new medical preference labels. We developed **Adversarial Self-Correction (ASC)**, a method that starts with two copies of the same language model. We trained both copies on the same general safety dataset using direct preference optimization (DPO). The first model, M<sub>LT</sub> (_less toxic_), learned to favor the response originally marked as preferred. For the second, M<sub>MT</sub> (_more toxic_), we swapped the preferred and rejected responses in every pair. The two models therefore learned opposing preferences from exactly the same examples.
 
@@ -146,7 +146,7 @@ How can we test a biophysical network simulation when the exact output is unknow
 - **Poster: NeuroCERT: Executable Testing for Oracle-Limited Biophysical Network Simulation.**  
   Seungyoun Lee, Hyun Jae Jang, and Jae-Ho Han.  
   IEEE International Conference on Software Testing, Verification and Validation (ICST),
-  pp. 324–327, 2026. **Peer-reviewed conference proceedings.**
+  pp. 324-327, 2026. **Peer-reviewed conference proceedings.**
 
 ### Transformer-Based Spiking Neural Networks
 
