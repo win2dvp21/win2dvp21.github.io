@@ -31,7 +31,7 @@ asc_figures:
     label: "Evaluation results."
     alt: "Benchmark results for BioMistral-7B and Llama-3.1-8B-Instruct, comparing the initial model, general-safety DPO, supervised fine-tuning, ASC, and the inverted policy."
     caption: >-
-      Results across six benchmarks for BioMistral-7B and Llama-3.1-8B-Instruct. Arrows indicate the preferred direction for each metric. M_LT is the general-safety DPO baseline, M_ASC is ASC, and M_MT is the inverted policy shown for diagnosis.
+      Results across six benchmarks for BioMistral-7B and Llama-3.1-8B-Instruct. Arrows indicate the preferred direction for each metric. The method diagram labels the two response-generating policies π<sub>LT</sub> and π<sub>MT</sub>. The results table uses M<sub>LT</sub> and M<sub>MT</sub> for the corresponding models and M<sub>ASC</sub> for the final model after medical preference training.
 
 _styles: |
   .research-figure {
@@ -62,11 +62,11 @@ _styles: |
 
 _KIST · Master's research, 2024–2026_
 
-My master’s research at KIST examined how disinhibitory circuits shape multisensory integration. When auditory and visual signals converge, does disinhibition help downstream neurons distinguish one stimulus combination from another?
+My master’s research at KIST examined how disinhibitory circuits shape multisensory integration. When auditory and visual signals converge, does disinhibition help downstream neurons distinguish one stimulus combination from another? To address this question, I built two four-layer Hodgkin–Huxley networks representing primary auditory cortex (A1) and primary visual cortex (V1), both projecting to a shared output layer.
 
-I built two Hodgkin–Huxley feedforward networks representing primary auditory cortex (A1) and primary visual cortex (V1), with both pathways converging on a shared output layer. As inputs, I used spike trains that my collaborators recorded from mouse A1 and V1 during presentations of tones and visual gratings. Using the same inputs, I compared three circuits. The baseline had no connections between the pathways. The second added direct excitation from A1 to V1. The third also included a disinhibitory circuit in which VIP interneurons inhibited SST interneurons, relieving inhibition of pyramidal neurons.
+As model inputs, I used spike trains that my collaborators recorded from mouse A1 and V1 while presenting tones and visual gratings together. For each A1–V1 neuron pair, we selected two auditory and two visual stimuli based on the neurons’ responses. This gave four tone–grating combinations, with 10 trials per combination in the input set. In each model pathway, 10% of the input-layer neurons received spike times recorded from the corresponding cortical area. The remaining 90% received simulated spontaneous activity, with firing rates drawn from a log-normal distribution.
 
-I measured how much information the output population’s firing rate carried about the stimulus using mutual information. Direct excitation increased firing but reduced stimulus information on average. With disinhibition, stimulus information rose above baseline in 36 of 75 input sets and fell below it in 39. Larger gains tended to occur when auditory activity was stronger relative to visual activity. In the five cases with the largest gains, I also found that the source of excitation to SST neurons mattered. Input from the same V1 layer produced larger gains in visual information than input from A1, while gains in auditory information were similar on average.
+Using the same inputs, I compared three circuits: a baseline with no cross-modal connections, a circuit with direct A1-to-V1 excitation, and a circuit incorporating VIP–SST disinhibition. I measured how much information the output population’s firing rate carried about the four stimulus combinations. Direct excitation increased firing but reduced mutual information on average. The disinhibitory circuit had a similar mean mutual information to the baseline, but its effect varied across simulations. Gains tended to be larger when the baseline circuit carried less stimulus information and when auditory activity was stronger relative to visual activity. I am currently preparing a first-author manuscript on this work.
 
 {% for figure in page.multisensory_figures %}
 {% assign research_image = site.static_files | where: "path", figure.path | first %}
@@ -106,9 +106,11 @@ I measured how much information the output population’s firing rate carried ab
 
 _Student-led collaboration initiated in CMU's Introduction to Deep Learning course · 2025–2026_
 
-At Carnegie Mellon University, my collaborators and I asked whether general safety preferences could help align a medical language model without collecting new labels for medical responses. We developed Adversarial Self-Correction (ASC), a method that trains two copies of the same model using direct preference optimization (DPO). One learns from the original safety preferences, while the other learns from the same examples with the preferences reversed. We then give both models the same medical prompt and treat the first model’s response as preferred. This gives us a pair of responses for medical safety training without asking an external judge to rank them.
+At Carnegie Mellon University, my collaborators and I asked whether general safety preferences could be used to align a language model for medical questions without collecting new medical preference labels. We developed **Adversarial Self-Correction (ASC)**, a method that starts with two copies of the same language model. We trained both copies on the same general safety dataset using direct preference optimization (DPO). The first model, M<sub>LT</sub> (_less toxic_), learned to favor the response originally marked as preferred. For the second, M<sub>MT</sub> (_more toxic_), we swapped the preferred and rejected responses in every pair. The two models therefore learned opposing preferences from exactly the same examples.
 
-We evaluated ASC on BioMistral-7B and Llama-3.1-8B-Instruct across six benchmarks. Compared with general-safety DPO, ASC reduced the share of unsafe XSTest requests that BioMistral-7B answered from 10.5% to 5.0%, while preserving accuracy on MedQA. The model also answered fewer safe requests, with compliance falling from 66.8% to 62.4%. Results on Llama-3.1-8B-Instruct were mixed. I led the project beyond the original course, and our first-author paper was accepted at the GenAI4Health workshop at NeurIPS 2026.
+We then gave both models the same medical questions from MedQuAD and collected one answer from each. For each question, we assigned the answer from M<sub>LT</sub> as the preferred response and the answer from M<sub>MT</sub> as the rejected response. This let us build medical preference pairs without asking a clinician or an external model to rank the answers. We then continued training M<sub>LT</sub> on these pairs to obtain the final model, M<sub>ASC</sub>. Comparing M<sub>ASC</sub> with M<sub>LT</sub> shows what the medical training step adds beyond general safety alignment.
+
+We evaluated ASC on BioMistral-7B and Llama-3.1-8B-Instruct across six benchmarks. For BioMistral-7B, the share of unsafe XSTest requests the model complied with fell from 10.5% with M<sub>LT</sub> to 5.0% with M<sub>ASC</sub>. MedQA accuracy held at 43.8%, although the model also answered fewer safe requests (62.4%, down from 66.8%). Results on Llama-3.1-8B-Instruct varied across benchmarks. I led the project beyond the original course and was first author on the resulting paper, accepted at the GenAI4Health workshop at NeurIPS 2026.
 
 {% for figure in page.asc_figures %}
 {% assign research_image = site.static_files | where: "path", figure.path | first %}
@@ -117,7 +119,7 @@ We evaluated ASC on BioMistral-7B and Llama-3.1-8B-Instruct across six benchmark
   <a href="{{ figure.path | relative_url }}" target="_blank" rel="noopener noreferrer" aria-label="Open full-size image: {{ figure.label | escape }}" title="Open full-size image">
     <img src="{{ figure.path | relative_url }}" alt="{{ figure.alt | escape }}" width="{{ figure.width }}" height="{{ figure.height }}" loading="lazy" decoding="async">
   </a>
-  <figcaption><strong>{{ figure.label | escape }}</strong> {{ figure.caption | escape }}</figcaption>
+  <figcaption><strong>{{ figure.label | escape }}</strong> {{ figure.caption | escape | replace: '&lt;sub&gt;', '<sub>' | replace: '&lt;/sub&gt;', '</sub>' }}</figcaption>
 </figure>
 {% endif %}
 {% endfor %}
